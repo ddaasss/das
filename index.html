@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>calc</title>
+	<style>
+		form{margin-bottom:2px;}
+		input{width:33vw;height: 2rem;}
+		div{position: relative;width: 33vw;
+			border: 1px solid gray;
+			display:flex;flex-wrap: wrap;}
+		button{font-size: 2rem;background: #607b8d;
+			display: block;width:25%;height:15vh;}
+		button:nth-last-child(3){height: 30vh;}
+		button:nth-last-child(2){
+			position: absolute;bottom: 0;width: 50%;}
+		button:nth-last-child(1){
+			position: absolute;bottom: 0;left: 50%;}
+	</style>
+
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+var sTag='<form> <input type="text" class="result" onkeyup="this.value=this.value.replace(/[^0-9*/+-]/g,\'\')"></form><div>';
+	var sArr="c</*789-456+123=0.";
+	var arr=sArr.split("");
+	var len=arr.length;
+	for(var i=0;i<len;i++){
+	sTag+="<button>"+arr[i]+"</button>";
+}
+sTag+="</div>"
+document.body.innerHTML=sTag;
+
+var btns=document.querySelectorAll("button");
+for(let i=2;i<len;i++){
+	if(i!==len-3){
+		btns[i].addEventListener("click",function(e){
+			document.querySelector(".result").value=
+			document.querySelector(".result").value+e.target.innerText;
+		});
+	}
+}
+
+btns[len-3].addEventListener("click",calc);
+function calc(){
+	document.querySelector(".result").value=
+	(document.querySelector(".result").value)?
+	eval(document.querySelector(".result").value):"";
+}
+
+document.onkeydown=function(e){
+	var e=event||window.event;
+	var keyCode=e.keyCode||e.witch;
+	if(keyCode==13||keyCode==187)calc()
+};
+
+btns[0].addEventListener("click",function(){
+	document.querySelector(".result").value="";
+});
+btns[1].addEventListener("click",function() {
+	var textv=document.querySelector(".result").value;
+	document.querySelector(".result").value=
+	textv.slice(0,textv.length-1);
+
+});
+document.querySelector("input").focus();
+
+if(/android|iphone/i.test(navigator.userAgent)){
+	document.querySelector("div").style.width="100vw";
+}
+</script>
+	
+</html>
+
+

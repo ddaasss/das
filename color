@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>colors</title>
+		
+<style> body{display: flex;flex-wrap:wrap;} div{width:19vw;height:20px;} </style>
+
+</head>
+<body><script> var aColor=['ffff00red','000000green','ffff00blue','ffff00magenta','000000yellow','000000chocolate','ffff00black','000000aquamarine','000000lime','ffff00fuchsia','ffff00brass','ff0000azure','ffff00brown','ffff00bronze','000000deeppink','000000aliceblue','ffff00gray','ffff00copper','000000coral','ff0000feldspar','000000orange','000000orchid','ff0000pink','000000plum','ffff00quartz','ffff00purple','000000aliceblue','ffff00antiquewith','ff0000blanchedalmond','000000blueviolet','ff0000beige','ffff00burlywood','000000bisque','ffff00cadetblue','000000pink','ffff00saddlebrown','ffff00royalblue','000000rosybrown','ffff00purple','ffff00orengered','000000olivedrab','ff0000powderblue','000000peachpuff','ff0000papayawhip','ff0000paleturquoise','000000palevioletred','ff0000palegreen','ffff00navyblue','000000navajowhite','ffff00palegodenrod','ff0000violetred','ff0000yellowgreen','ffff00tomato','ff0000turquoise','ff0000thistle','ff0000springgreen','000000steelblue','000000salmon','ffff00scarlet','ffff00sienna','000000silver','ffff00tan','000000thistle','ff0000turquoise','ffff00violet','ff0000snow','000000salmon','ffff00scarlet','ffff00sienna','000000silver','ffff00tan','000000thistle','ff0000turquoise','ffff00violet','ff0000chartreuse','ffff00firebrick','000000gold','ff0000khaki','000000mediumslateblue','ffff00mediumvioletred','ff0000oldlace','ffff00maroom','ffff00goldenrod','ff0000wheat','ff0000whitesmoke','000000orange','ff0000moccasin','ff0000mistyrose','000000mintcream','ffffffmidnightblue','000000dimgray','ff0000darksalmon','000000slategray','ff0000skyblue','ffff00sienna','000000seashell','ffff00salmon','ffff00seagreen','000000sandybrown','ffff00firebrick','000000gold','ff0000khaki','ffff00maroom','ffff00goldenrod','ff0000wheat','ff0000whitesmoke','000000mediumturquoise','ffff00navy','ff0000mediumspringgreen','000000mediumseagreen','ffff00mediumpurpul','ff0000peru','000000mediumorchid','ffff00mediumblue','000000mediumaquamarine','ffff00maroon','ffff00limegreen','ff0000lightyellow','ffff00lightsteelblue','ffff00magenta','ffff00lightslateblue','ffff00lightslategray','000000lightskyblue','ff0000inen','ffff00lightseagreen','ffff00lightsalmon','ff0000lightpink','ffff00plum','ffff00lightgray','ff0000lightgreen','ffff00lightgodenrodyellow','ffff00indianred','ff0000lavender','000000lightblue','ff0000lavenderblush','ff0000lightcoral','000000lightcyan','ffff00lightgodenrod','000000hotpink','ff0000greenyellow','ff0000lemonchiffon','000000lawngreen','ff0000khaki','ffff00deepskyblue','000000honeydew','ff0000golenrod','000000forestgreen','ffff00gostwhite','ff0000greenyellow','000000gainsboro','ffff00firebrick','ffff00dodgerblue','000000darkturquoise','ffff00darkslateblue','ffffffdarkslategray','ffff00darkseagreen','ffff00darkred','000000darkorchid','ffff00darkorenge','ffff00darkslateblue','000000darkviolet','ff0000floralwhite','ff0000cyan','000000bisque','darkgray','ff0000cornsilk','ffff00darkolivegreen','000000darkgoldenrod','ffff00darkblue','ffff00darkcyan','000000darkgreen','ffff00darkhaki','ff0000ivory','ffff00darkmagenta','ffff00darkgray','ff0000cornfloewrblue','000000cornfloewrblue','ffff00darkviolet','ff0000floralwhite','ffcc00','ffcc0000','ffff00darkslategray','ffff00darkseagreen','ffff00darkred','ffff00darkorchid','ffff00darkorenge','ffff00darkslateblue']; var tagDiv=""; var len=aColor.length; for(var i=0;i<len;i++){ tagDiv+="<div></div>"; } document.body.innerHTML=tagDiv; var oDiv=document.querySelectorAll("div"); for(var i=0;i<len;i++){ oDiv[i].style.color='#'+aColor[i].substr(0,6); oDiv[i].innerHTML=aColor[i].slice(6); oDiv[i].style.background=aColor[i].slice(6); } </script>
+
+</body>
+<script type="text/javascript">
+
+</script>
+
+</html>
+
+

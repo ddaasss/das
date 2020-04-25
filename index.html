@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.0, user-scalable=yes" />
 	<!-- <base target="_blank"/> -->
 <style>
 #input{text-align:center;}
@@ -59,11 +59,12 @@ body{width: 100%;}
 	<a url="https://segmentfault.com/search?q=">segmeng</a>
 
 
-
+	<a url="">ASCII</a>
 	<a url="">reverse</a>
 	<a url="">uniq</a>
 	<a url="">color</a>
 	<a url="">repeat</a>
+	
 	<!-- <a url=""></a> -->
 </div>
 
@@ -75,7 +76,7 @@ body{width: 100%;}
 	var btns=document.getElementsByTagName("a");
 	var len=btns.length;
 
-	for(var i=1;i<len-4;i++){
+	for(var i=1;i<len-5;i++){
 	
 		btns[i].addEventListener("click",function(e){
 			window.open(this.getAttribute('url') + encodeURIComponent(document.getElementById('keyword').value));
@@ -86,6 +87,16 @@ body{width: 100%;}
 
 
 btns[0].addEventListener("click",calc);
+
+
+btns[len-5].addEventListener("click",function(){
+	var str=document.getElementById("keyword").value;
+
+    document.getElementById("keyword").value=
+    (str.match(' '))?
+    String.fromCharCode.apply('',str.split(/ +/)):
+    str.split('').map(function(a){return a.charCodeAt();}).join(' ');
+});
 
 btns[len-4].addEventListener("click",function(){
 	 	var str=document.getElementById("keyword").value;

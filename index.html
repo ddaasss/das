@@ -29,7 +29,7 @@
 
 <div id="box">
 	<a url=""># calc </a>
-	<a url="https://cn.bing.com/search?ensearch=1&q=">bing </a>
+	<a url="https://cn.bing.com/search?q=">bing </a>
 	<a url="https://m.baidu.com/s?word=">百度</a>
 	<a url="https://wap.sogou.com/web/sl?keyword=">搜狗</a>
 	<a url="https://m.so.com/s?q=">360</a>
@@ -189,6 +189,8 @@ codes[73].addEventListener("click",function(e){
 if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
 	document.querySelector("#code").style.width="100vw";
+	document.querySelector("#line").style.width="100vw";
+	
 }
 	function cook(){
 var bj=document.cookie.match(/bg=[^;]+/)?

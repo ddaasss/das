@@ -141,7 +141,7 @@ if(/android|iphone/i.test(navigator.userAgent)){
 }
 	
 var bj=document.cookie.match(/bg=[^;]+/)?
-document.cookie.match(/bg=[^;]+/)[0].slice(3,-1):"blue"
+document.cookie.match(/bg=[^;]+/)[0].slice(3):"blue"
 document.body.style.background=bj;
 
 document.getElementById("keyword").focus();

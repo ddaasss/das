@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.0, user-scalable=yes" />
 	<!-- <base target="_blank"/> -->
 <style>
-	*{margin:0;padding:0;}
 #input{text-align:center;}
 body{width: 100%;}
 #box{width:55%;margin:20px auto;background: #bfa;display: flex;flex-wrap: wrap;}
@@ -118,7 +117,8 @@ btns[len-3].addEventListener("click",function(){
 });
 
 btns[len-2].addEventListener("click",function(){
-	 document.body.style.background=document.getElementById("keyword").value;	
+	document.cookie="bg="+document.getElementById("keyword").value;
+	 	
 
 	});
 
@@ -140,7 +140,10 @@ if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
 }
 	
-	
+var bj=document.cookie.match(/bg=[^;]+/)?
+document.cookie.match(/bg=[^;]+/)[0].slice(3,-1):"blue"
+document.body.style.background=bj;
+
 document.getElementById("keyword").focus();
 
 

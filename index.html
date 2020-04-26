@@ -118,7 +118,7 @@ btns[len-3].addEventListener("click",function(){
 
 btns[len-2].addEventListener("click",function(){
 	document.cookie="bg="+document.getElementById("keyword").value;
-	 	
+	 cook();	
 
 	});
 
@@ -140,9 +140,11 @@ if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
 }
 	
-var bj=document.cookie.match(/bg=[^;]+/)?
+function cook(){
+	var bj=document.cookie.match(/bg=[^;]+/)?
 document.cookie.match(/bg=[^;]+/)[0].slice(3):"blue"
 document.body.style.background=bj;
+}
 
 document.getElementById("keyword").focus();
 

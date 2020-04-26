@@ -6,8 +6,8 @@
 	body{width:100%;}
 #input{text-align:center;}
 
-#line{width:55%;height:20px;margin:0 auto;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAArSURBVBhXY1hx/Ol/JiYWVgYmIGBgYmRgZGBi+M8AJIAAQgB5yFyEBJEsAN+OBYtx8INFAAAAAElFTkSuQmCC) repeat-x;opacity: .2;}
-#box{width:55%;margin:0 auto;background: black;display: flex;flex-wrap: wrap;justify-content: center;margin-bottom:20px;}
+#line{width:55%;height:20px;margin:0 auto;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAArSURBVBhXY1hx/Ol/JiYWVgYmIGBgYmRgZGBi+M8AJIAAQgB5yFyEBJEsAN+OBYtx8INFAAAAAElFTkSuQmCC) repeat-x;opacity: .3;}
+#box{width:55%;margin:0 auto;background: black;display: flex;flex-wrap: wrap;justify-content: center;}
 #box a{display:block;width:20%;color:white;line-height:2rem;text-align: center;}
 #box a:hover{color:#red;text-decoration: underline;}
 
@@ -29,7 +29,7 @@
 
 <div id="box">
 	<a url=""># calc </a>
-	<a url="https://cn.bing.com/search?q=">bing </a>
+	<a url="https://cn.bing.com/search?ensearch=1&q=">bing </a>
 	<a url="https://m.baidu.com/s?word=">百度</a>
 	<a url="https://wap.sogou.com/web/sl?keyword=">搜狗</a>
 	<a url="https://m.so.com/s?q=">360</a>
@@ -68,7 +68,7 @@
 	<a url="https://search.zol.com.cn/s/all.php?kword=">ZOL</a>
 	<a url="https://segmentfault.com/search?q=">segmeng</a>
 
-
+	<a url="">seq</a>
 	<a url="">ASCII</a>
 	<a url="">reverse</a>
 	<a url="">uniq</a>
@@ -78,7 +78,7 @@
 	<!-- <a url=""></a> -->
 </div>
 <div id="code">
-<p>`</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>0</p><p>-</p><p>=</p><p>~</p><p>!</p><p>@</p><p>#</p><p>$</p><p>%</p><p>^</p><p>&</p><p>*</p><p>(</p><p>)</p><p>_</p><p>+</p><p>q</p><p>w</p><p>e</p><p>r</p><p>t</p><p>y</p><p>u</p><p>i</p><p>o</p><p>p</p><p>[</p><p>]</p><p>=</p><p>'</p><p>"</p><p>a</p><p>s</p><p>d</p><p>f</p><p>g</p><p>h</p><p>j</p><p>k</p><p>l</p><p>;</p><p>:</p><p><</p><p>></p><p>?</p><p>z</p><p>x</p><p>c</p><p>v</p><p>b</p><p>n</p><p>m</p><p>,</p><p>.</p><p>/</p><p>|</p><p>{</p><p>}</p><p>https://</p><p>Space</p><p>.com</p><p>AC</p><p>Back</p><p>Enter</p>
+<p>`</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>0</p><p>-</p><p>=</p><p>~</p><p>!</p><p>@</p><p>#</p><p>$</p><p>%</p><p>^</p><p>&</p><p>*</p><p>(</p><p>)</p><p>_</p><p>+</p><p>q</p><p>w</p><p>e</p><p>r</p><p>t</p><p>y</p><p>u</p><p>i</p><p>o</p><p>p</p><p>[</p><p>]</p><p>=</p><p>'</p><p>"</p><p>a</p><p>s</p><p>d</p><p>f</p><p>g</p><p>h</p><p>j</p><p>k</p><p>l</p><p>;</p><p>:</p><p><</p><p>></p><p>?</p><p>z</p><p>x</p><p>c</p><p>v</p><p>b</p><p>n</p><p>m</p><p>,</p><p>.</p><p>/</p><p>|</p><p>{</p><p>}</p><p>https://</p><p>&nbsp;</p><p>.com</p><p>AC</p><p>Back</p><p>Enter</p>
 </div>
 
 
@@ -89,7 +89,7 @@
 	var btns=document.getElementsByTagName("a");
 	var len=btns.length;
 
-	for(var i=1;i<len-5;i++){
+	for(var i=1;i<len-6;i++){
 	
 		btns[i].addEventListener("click",function(e){
 			window.open(this.getAttribute('url') + encodeURIComponent(document.getElementById('keyword').value));
@@ -100,6 +100,17 @@
 
 
 btns[0].addEventListener("click",calc);
+
+btns[len-6].addEventListener("click",function(){
+	var strr=document.getElementById("keyword").value.split(/\s+/);
+	var start=parseInt(strr[0]);
+	var end=parseInt(strr[1]);
+	var step=(strr.length==3)?parseInt(strr[2]):1;
+	var sum="";
+	for(var i=start;i<=end;i=i+step){sum=sum+(i+" ");}
+	document.getElementById("keyword").value=sum;
+});
+
 
 
 btns[len-5].addEventListener("click",function(){
@@ -125,7 +136,7 @@ btns[len-3].addEventListener("click",function(){
 		}
 
 		document.getElementById("keyword").value=
-		str.split(/ +/).reduce(function(r,i){
+		str.split(/\s+/).reduce(function(r,i){
 			return (r.indexOf(i)===-1?r.push(i):r,r)},[]).join(" ");
 });
 
@@ -190,7 +201,6 @@ if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
 	document.querySelector("#code").style.width="100vw";
 	document.querySelector("#line").style.width="100vw";
-	
 }
 	function cook(){
 var bj=document.cookie.match(/bg=[^;]+/)?

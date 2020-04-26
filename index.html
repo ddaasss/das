@@ -3,14 +3,16 @@
 	<!-- <base target="_blank"/> -->
 <style>
 	*{margin:0;padding: 0;}
+	body{width:100%;}
 #input{text-align:center;}
-body{width: 100%;}
-#box{width:55%;margin:20px auto;background: black;display: flex;flex-wrap: wrap;justify-content: center;}
+
+#line{width:55%;height:20px;margin:0 auto;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAArSURBVBhXY1hx/Ol/JiYWVgYmIGBgYmRgZGBi+M8AJIAAQgB5yFyEBJEsAN+OBYtx8INFAAAAAElFTkSuQmCC) repeat-x;opacity: .2;}
+#box{width:55%;margin:0 auto;background: black;display: flex;flex-wrap: wrap;justify-content: center;}
 #box a{display:block;width:20%;color:white;line-height:2rem;text-align: center;}
 #box a:hover{color:#red;text-decoration: underline;}
 
-#code{width:70%;margin:3px auto;background:#dff;display:flex;flex-wrap:wrap;justify-content: flex-end;align-content: center;}
-#code>p{width:7.69%;line-height: 2rem;text-align: center;border:1px red solid;box-sizing: border-box;}
+#code{width:70%;margin:0 auto;background:#dff;display:flex;flex-wrap:wrap;justify-content: flex-end;align-content: center;}
+#code>p{width:7.69%;line-height: 2rem;text-align: center;border:1px #accced solid;box-sizing: border-box;}
 
 #code>p:nth-last-child(-n+6){width:12%;}
 #code>p:nth-last-child(5){flex:1;}
@@ -23,7 +25,7 @@ body{width: 100%;}
 		 <input type="text" id="keyword" value="">
 	</form>
 
-
+<div id="line"></div>
 
 <div id="box">
 	<a url=""># calc </a>
@@ -173,6 +175,12 @@ codes[72].addEventListener("click",function() {
 
 });
 
+codes[73].addEventListener("click",function(e){
+		var textv=document.getElementById('keyword').value
+		var bing=(textv.match(/^http|^www|^m\./))?
+		"":"https://cn.bing.com/search?q="
+		window.open(bing + encodeURIComponent(textv));
+	});
 
 
 

@@ -4,8 +4,9 @@
 <style>
 #input{text-align:center;}
 body{width: 100%;}
-#box{width:55%;margin:20px auto;background: #bfa;display: flex;flex-wrap: wrap;}
-#box a{display:block;width:20%;line-height:2rem;}
+#box{width:55%;margin:20px auto;background: black;display: flex;flex-wrap: wrap;}
+#box a{display:block;width:20%;color:white;line-height:2rem;}
+#box a:hover{color:#red;text-decoration: underline;}
 </style>
 <title>nav&search</title>
 </head>
@@ -100,7 +101,7 @@ btns[len-5].addEventListener("click",function(){
 
 btns[len-4].addEventListener("click",function(){
 	 	var str=document.getElementById("keyword").value;
-	 	document.getElementById("keyword").value=str.split("").reverse().join(" ")
+	 	document.getElementById("keyword").value=str.split("").reverse().join("")
 	});
 
 
@@ -117,8 +118,8 @@ btns[len-3].addEventListener("click",function(){
 });
 
 btns[len-2].addEventListener("click",function(){
-	document.cookie="bg="+document.getElementById("keyword").value;
-	 cook();	
+	document.cookie="bg="+document.getElementById("keyword").value+";expires=Thu, 01 Jan 2022 00:00:00 UTC"
+	 cook()	
 
 	});
 
@@ -139,10 +140,9 @@ function calc(){
 if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
 }
-	
-function cook(){
-	var bj=document.cookie.match(/bg=[^;]+/)?
-document.cookie.match(/bg=[^;]+/)[0].slice(3):"blue"
+	function cook(){
+var bj=document.cookie.match(/bg=[^;]+/)?
+document.cookie.match(/bg=[^;]+/)[0].slice(3):"#102456"
 document.body.style.background=bj;
 }
 cook();

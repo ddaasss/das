@@ -9,11 +9,10 @@ body{width: 100%;}
 #box a{display:block;width:20%;color:white;line-height:2rem;text-align: center;}
 #box a:hover{color:#red;text-decoration: underline;}
 
-#code{width:70%;margin:3px auto;height:300px;background:#dff;display:flex;flex-wrap:wrap;justify-content: center;}
+#code{width:70%;margin:3px auto;background:#dff;display:flex;flex-wrap:wrap;justify-content: flex-end;align-content: center;}
 #code>p{width:7.69%;line-height: 2rem;text-align: center;border:1px red solid;box-sizing: border-box;}
 
-#code>p:nth-last-child(2){width:15%;}
-#code>p:nth-last-child(1){width:15%;}
+#code>p:nth-last-child(-n+4){width:15%;}
 </style>
 <title>nav&search</title>
 </head>
@@ -76,7 +75,7 @@ body{width: 100%;}
 	<!-- <a url=""></a> -->
 </div>
 <div id="code">
-<p>`</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>0</p><p>-</p><p>=</p><p>~</p><p>!</p><p>@</p><p>#</p><p>$</p><p>%</p><p>^</p><p>&</p><p>*</p><p>(</p><p>)</p><p>_</p><p>+</p><p>q</p><p>w</p><p>e</p><p>r</p><p>t</p><p>y</p><p>u</p><p>i</p><p>o</p><p>p</p><p>[</p><p>]</p><p>E</p><p>'</p><p>"</p><p>a</p><p>s</p><p>d</p><p>f</p><p>g</p><p>h</p><p>j</p><p>k</p><p>l</p><p>;</p><p>:</p><p><</p><p>></p><p>?</p><p>z</p><p>x</p><p>c</p><p>v</p><p>b</p><p>n</p><p>m</p><p>,</p><p>.</p><p>/</p><p>{</p><p>}</p><p>|</p><p>S</p><p>B</p>
+<p>`</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>0</p><p>-</p><p>=</p><p>~</p><p>!</p><p>@</p><p>#</p><p>$</p><p>%</p><p>^</p><p>&</p><p>*</p><p>(</p><p>)</p><p>_</p><p>+</p><p>q</p><p>w</p><p>e</p><p>r</p><p>t</p><p>y</p><p>u</p><p>i</p><p>o</p><p>p</p><p>[</p><p>]</p><p>E</p><p>'</p><p>"</p><p>a</p><p>s</p><p>d</p><p>f</p><p>g</p><p>h</p><p>j</p><p>k</p><p>l</p><p>;</p><p>:</p><p><</p><p>></p><p>?</p><p>z</p><p>x</p><p>c</p><p>v</p><p>b</p><p>n</p><p>m</p><p>,</p><p>.</p><p>/</p><p>|</p><p>{</p><p>}</p><p>Space</p><p>https://</p><p>.com</p><p>Back</p>
 </div>
 
 
@@ -149,6 +148,7 @@ function calc(){
 
 if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
+	document.querySelector("#code").style.width="100vw";
 }
 	function cook(){
 var bj=document.cookie.match(/bg=[^;]+/)?

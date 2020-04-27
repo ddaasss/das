@@ -88,7 +88,8 @@
 </div>
 <div id="bu">
 <button>AC</button>
-<button type="button" id="btn">ajax</button>
+<button id="btn">ajax</button>
+<button>ajax2</button>
 </div>
 
 <div id="view" style="width:70%;background: #000;color:#fff;margin:0 auto;">
@@ -226,7 +227,8 @@ codes[74].addEventListener("click",function(e){
 
 if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
-	document.querySelector("#code").style.width="100vw";
+	document.querySelector("#wrap").style.width="100vw";
+	document.querySelector("#view").style.width="100vw";
 	document.querySelector("#line").style.width="100vw";
 }else{
 	idkw.focus();
@@ -243,12 +245,16 @@ cook();
 </script>
 
 <script>
-        document.getElementById("btn").onclick = ajaxRequest;
+	  var bu=document.querySelectorAll("#bu button");
+      	bu[0].onclick=function(){document.getElementById("view").innerHTML="";}
 
-        function ajaxRequest () {
+        bu[1].onclick = function(){ajaxRequest("https://ddaasss.github.io/alert.js");}
+        bu[2].onclick = function(){ajaxRequest("");}
+
+        function ajaxRequest (url) {
             var xhr = new XMLHttpRequest();
 
-            xhr.open("GET", "https://ddaasss.github.io/alert.js", true);
+            xhr.open("GET", url, true);
             xhr.send();
 
             xhr.onreadystatechange = function(){
@@ -258,8 +264,7 @@ cook();
             }
         }
 
-      var bu=document.querySelectorAll("#bu");
-      bu[0].onclick=function(){document.getElementById("view").innerHTML="";}
+ 
     </script>
 		 </body>
 		 </html>

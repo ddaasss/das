@@ -14,7 +14,7 @@
 #code{width:70%;margin:0 auto;background:#dff;display:flex;flex-wrap:wrap;justify-content: flex-end;align-content: center;}
 #code>p{width:7.69%;line-height: 2rem;text-align: center;border:1px #accced solid;box-sizing: border-box;}
 
-#code>p:nth-last-child(-n+6){width:12%;}
+#code>p:nth-last-child(-n+6){width:11%;}
 #code>p:nth-last-child(5){flex:1;}
 </style>
 <title>nav&search</title>
@@ -72,13 +72,14 @@
 	<a url="">ASCII</a>
 	<a url="">reverse</a>
 	<a url="">uniq</a>
-	<a url="">color</a>
+	
 	<a url="">repeat</a>
+	<a url="">color</a>
 	
 	<!-- <a url=""></a> -->
 </div>
 <div id="code">
-<p>`</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>0</p><p>-</p><p>=</p><p>~</p><p>!</p><p>@</p><p>#</p><p>$</p><p>%</p><p>^</p><p>&</p><p>*</p><p>(</p><p>)</p><p>_</p><p>+</p><p>q</p><p>w</p><p>e</p><p>r</p><p>t</p><p>y</p><p>u</p><p>i</p><p>o</p><p>p</p><p>[</p><p>]</p><p>=</p><p>'</p><p>"</p><p>a</p><p>s</p><p>d</p><p>f</p><p>g</p><p>h</p><p>j</p><p>k</p><p>l</p><p>;</p><p>:</p><p><</p><p>></p><p>?</p><p>z</p><p>x</p><p>c</p><p>v</p><p>b</p><p>n</p><p>m</p><p>,</p><p>.</p><p>/</p><p>|</p><p>{</p><p>}</p><p>https://</p><p>&nbsp;</p><p>.com</p><p>AC</p><p>Back</p><p>Enter</p>
+<p>`</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>0</p><p>-</p><p>=</p><p>~</p><p>!</p><p>@</p><p>#</p><p>$</p><p>%</p><p>^</p><p>&</p><p>*</p><p>(</p><p>)</p><p>_</p><p>+</p><p>q</p><p>w</p><p>e</p><p>r</p><p>t</p><p>y</p><p>u</p><p>i</p><p>o</p><p>p</p><p>[</p><p>]</p><p>=</p><p>'</p><p>"</p><p>a</p><p>s</p><p>d</p><p>f</p><p>g</p><p>h</p><p>j</p><p>k</p><p>l</p><p>;</p><p>:</p><p><</p><p>></p><p>?</p><p>z</p><p>x</p><p>c</p><p>v</p><p>b</p><p>n</p><p>m</p><p>,</p><p>.</p><p>/</p><p>{</p><p>}</p><p>|</p><p>\</p><p>https://</p><p>&nbsp;</p><p>.com</p><p>AC</p><p>Back</p><p>Enter</p>
 </div>
 
 
@@ -86,13 +87,14 @@
 
 
 <script>
+	var idkw=document.getElementById('keyword')
 	var btns=document.getElementsByTagName("a");
 	var len=btns.length;
 
 	for(var i=1;i<len-6;i++){
 	
 		btns[i].addEventListener("click",function(e){
-			window.open(this.getAttribute('url') + encodeURIComponent(document.getElementById('keyword').value));
+			window.open(this.getAttribute('url') + encodeURIComponent(idkw.value));
 
 		});
 	
@@ -103,7 +105,7 @@
 	var keyCode=e.keyCode||e.witch;
 	if(keyCode==13||keyCode==187){
 
-		var textv=document.getElementById('keyword').value
+		var textv=idkw.value
 		var bing=(textv.match(/^http|^www|^m\./))?
 		"":"https://cn.bing.com/search?q="
 		window.open(bing + textv);
@@ -114,73 +116,74 @@
 btns[0].addEventListener("click",calc);
 
 btns[len-6].addEventListener("click",function(){
-	var strr=document.getElementById("keyword").value.split(/\s+/);
+	var strr=idkw.value.split(/\s+/);
 	var start=parseInt(strr[0]);
 	var end=parseInt(strr[1]);
 	var step=(strr.length==3)?parseInt(strr[2]):1;
 	var sum="";
 	for(var i=start;i<=end;i=i+step){sum=sum+(i+" ");}
-	document.getElementById("keyword").value=sum;
+	idkw.value=sum;
 });
 
 
 
 btns[len-5].addEventListener("click",function(){
-	var str=document.getElementById("keyword").value;
+	var str=idkw.value;
 
-    document.getElementById("keyword").value=
+    idkw.value=
     (str.match(' '))?
     String.fromCharCode.apply('',str.split(/ +/)):
     str.split('').map(function(a){return a.charCodeAt();}).join(' ');
 });
 
 btns[len-4].addEventListener("click",function(){
-	 	var str=document.getElementById("keyword").value;
-	 	document.getElementById("keyword").value=str.split("").reverse().join("")
+	 	var str=idkw.value;
+	 	idkw.value=str.split("").reverse().join("");
 	});
 
 
 
 btns[len-3].addEventListener("click",function(){
-		var str=document.getElementById("keyword").value;
+		var str=idkw.value;
 		if(str.indexOf(" ")<0){
-			str=document.getElementById("keyword").value.split("").join(" ");
+			str=idkw.value.split("").join(" ");
 		}
 
-		document.getElementById("keyword").value=
+		idkw.value=
 		str.split(/\s+/).reduce(function(r,i){
 			return (r.indexOf(i)===-1?r.push(i):r,r)},[]).join(" ");
 });
 
+
+
 btns[len-2].addEventListener("click",function(){
-	document.cookie="bg="+document.getElementById("keyword").value+";expires=Thu, 01 Jan 2022 00:00:00 UTC"
-	 cook()	
-
-	});
-
-btns[len-1].addEventListener("click",function(){
-	var str=document.getElementById("keyword").value;
+	var str=idkw.value;
 	var n=parseInt(str.slice(-1));
-	document.getElementById("keyword").value=(str.slice(0,-1)).repeat(n);
-
+	idkw.value=(str.slice(0,-1)).repeat(n);
 });
 
+btns[len-1].addEventListener("click",function(){
+	document.cookie="bg="+idkw.value+";expires=Thu, 01 Jan 2022 00:00:00 UTC"
+	 cook()	
+	});
+
 function calc(){
-	document.getElementById("keyword").value=
-	(document.getElementById("keyword").value)?
-	eval(document.getElementById("keyword").value):"";
+	idkw.value=
+	(idkw.value)?
+	eval(idkw.value):"";
 }
 </script>
+
 
 <script>
 	
 var codes=document.querySelectorAll("#code p");
 var codeslen=codes.length;
-for(let i=0;i<71;i++){
+for(let i=0;i<72;i++){
 	if(i!==12){
 		codes[i].addEventListener("click",function(e){
-			document.getElementById("keyword").value=
-			document.getElementById("keyword").value+e.target.innerText;
+			idkw.value=
+			idkw.value+e.target.innerText;
 		});
 	}
 }
@@ -188,18 +191,16 @@ for(let i=0;i<71;i++){
 
 
 codes[12].addEventListener("click",calc);
-codes[71].addEventListener("click",function(){
-	document.getElementById("keyword").value="";
+codes[72].addEventListener("click",function(){
+	idkw.value="";
 });
-codes[72].addEventListener("click",function() {
-	var textv=document.getElementById("keyword").value;
-	document.getElementById("keyword").value=
+codes[73].addEventListener("click",function() {
+	var textv=idkw.value;
+	idkw.value=
 	textv.slice(0,textv.length-1);
-
 });
-
-codes[73].addEventListener("click",function(e){
-		var textv=document.getElementById('keyword').value
+codes[74].addEventListener("click",function(e){
+		var textv=idkw.value
 		var bing=(textv.match(/^http|^www|^m\./))?
 		"":"https://cn.bing.com/search?q="
 		window.open(bing + textv);
@@ -213,16 +214,17 @@ if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
 	document.querySelector("#code").style.width="100vw";
 	document.querySelector("#line").style.width="100vw";
+}else{
+	idkw.focus();
 }
+
+
 	function cook(){
 var bj=document.cookie.match(/bg=[^;]+/)?
 document.cookie.match(/bg=[^;]+/)[0].slice(3):"#102456"
 document.body.style.background=bj;
 }
 cook();
-
-document.getElementById("keyword").focus();
-
 
 </script>
 		 </body>

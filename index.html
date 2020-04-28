@@ -12,7 +12,7 @@
 #box a{display:block;width:20%;color:white;line-height:2rem;text-align: center;}
 #box a:hover{color:#red;text-decoration: underline;}
 
-#bu{width:70%;margin:0 auto;margin-bottom: 3px;padding:3px;font-size: 1.5rem;}
+#bu{width:70%;margin-bottom: 3px;padding:3px;font-size: 1.5rem;}
 
 #wrap{width: 70%;position: absolute;bottom:0;left: 15%;margin-bottom: 20px;z-index: -1}
 #code{width:100%;margin:0 auto;background:#dff;display:flex;flex-wrap:wrap;justify-content: flex-end;align-content: center;}
@@ -254,7 +254,7 @@ cook();
 	  var bu=document.querySelectorAll("#bu button");
       	bu[0].onclick=function(){document.getElementById("view").innerHTML="";}
 
-        bu[1].onclick = function(){ajaxRequest("https://ddaasss.github.io/help.js");}
+        bu[1].onclick = function(){idview.innerHTML=ajaxRequest("https://ddaasss.github.io/help");}
         bu[2].onclick = function(){
         	var video="";
         	idview.innerHTML=

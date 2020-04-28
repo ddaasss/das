@@ -4,6 +4,7 @@
 <style>
 	*{margin:0;padding: 0;}
 	body{width:100%;}
+	img{max-width: 100%;}
 #input{text-align:center;}
 
 #line{width:70%;height:20px;margin:0 auto;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAArSURBVBhXY1hx/Ol/JiYWVgYmIGBgYmRgZGBi+M8AJIAAQgB5yFyEBJEsAN+OBYtx8INFAAAAAElFTkSuQmCC) repeat-x;opacity: .3;}
@@ -88,8 +89,10 @@
 </div>
 <div id="bu">
 <button>AC</button>
-<button id="btn">ajax</button>
-<button>ajax2</button>
+<button id="btn">help</button>
+<button>video</button>
+<button>pic</button>
+<button>music</button>
 </div>
 
 <div id="view" style="width:70%;background: #000;color:#fff;margin:0 auto;">
@@ -98,7 +101,8 @@
 
 
 <script>
-	var idkw=document.getElementById('keyword')
+	var idkw=document.getElementById('keyword');
+	var idview=document.getElementById("view");
 	var btns=document.getElementsByTagName("a");
 	var len=btns.length;
 
@@ -229,6 +233,7 @@ if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
 	document.querySelector("#wrap").style.width="100vw";
 	document.querySelector("#view").style.width="100vw";
+	document.querySelector("#view").style.left="0";
 	document.querySelector("#line").style.width="100vw";
 }else{
 	idkw.focus();
@@ -250,6 +255,15 @@ cook();
 
         bu[1].onclick = function(){ajaxRequest("https://ddaasss.github.io/alert.js");}
         bu[2].onclick = function(){ajaxRequest("");}
+        bu[3].onclick = function(){
+        	var imgs=["https://cn.bing.com/th?id=OHR.SalisburyCathedral_ZH-CN6366350896_1920x1080.jpg","https://cn.bing.com/th?id=OHR.PalouseSpring_ZH-CN6803103328_1920x1080.jpg"]
+        	idview.innerHTML=
+        	"<img src='" + imgs[~~(Math.random()*2)] +"'>";}
+        bu[4].onclick = function(){
+        	var musics=[2116886,190495,298838,227012,29418971,298495,287039,276711,29491050];
+        	idview.innerHTML=
+        	"<audio src='http://music.163.com/song/media/outer/url?id="+ musics[~~(Math.random()*9)] + ".mp3' controls='controls' autoplay ></audio>";}
+
 
         function ajaxRequest (url) {
             var xhr = new XMLHttpRequest();
@@ -259,7 +273,7 @@ cook();
 
             xhr.onreadystatechange = function(){
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById("view").innerHTML = xhr.responseText;
+                    idview.innerHTML = xhr.responseText;
                 }                
             }
         }

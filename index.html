@@ -12,7 +12,7 @@
 #box a{display:block;width:20%;color:white;line-height:2rem;text-align: center;}
 #box a:hover{color:#red;text-decoration: underline;}
 
-#bu{width:70%;margin:0 auto;}
+#bu{width:70%;margin:0 auto;margin-bottom: 3px;padding:3px;font-size: 1.5rem;}
 
 #wrap{width: 70%;position: absolute;bottom:0;left: 15%;margin-bottom: 20px;z-index: -1}
 #code{width:100%;margin:0 auto;background:#dff;display:flex;flex-wrap:wrap;justify-content: flex-end;align-content: center;}
@@ -89,6 +89,7 @@
 </div>
 <div id="bu">
 <button>AC</button>
+
 <button id="btn">help</button>
 <button>video</button>
 <button>pic</button>
@@ -233,7 +234,7 @@ if(/android|iphone/i.test(navigator.userAgent)){
 	document.querySelector("#box").style.width="100vw";
 	document.querySelector("#wrap").style.width="100vw";
 	document.querySelector("#view").style.width="100vw";
-	document.querySelector("#view").style.left="0";
+	document.querySelector("#wrap").style.left="0";
 	document.querySelector("#line").style.width="100vw";
 }else{
 	idkw.focus();
@@ -253,8 +254,15 @@ cook();
 	  var bu=document.querySelectorAll("#bu button");
       	bu[0].onclick=function(){document.getElementById("view").innerHTML="";}
 
-        bu[1].onclick = function(){ajaxRequest("https://ddaasss.github.io/alert.js");}
-        bu[2].onclick = function(){ajaxRequest("");}
+        bu[1].onclick = function(){ajaxRequest("https://ddaasss.github.io/help.js");}
+        bu[2].onclick = function(){
+        	var video="";
+        	idview.innerHTML=
+        	"<audio src='' controls='controls' ></audio>";
+        }
+
+
+
         bu[3].onclick = function(){
         	var imgs=["https://cn.bing.com/th?id=OHR.SalisburyCathedral_ZH-CN6366350896_1920x1080.jpg","https://cn.bing.com/th?id=OHR.PalouseSpring_ZH-CN6803103328_1920x1080.jpg"]
         	idview.innerHTML=
@@ -262,7 +270,7 @@ cook();
         bu[4].onclick = function(){
         	var musics=[2116886,190495,298838,227012,29418971,298495,287039,276711,29491050];
         	idview.innerHTML=
-        	"<audio src='http://music.163.com/song/media/outer/url?id="+ musics[~~(Math.random()*9)] + ".mp3' controls='controls' autoplay ></audio>";}
+        	"<audio src='http://music.163.com/song/media/outer/url?id="+ musics[~~(Math.random()*9)] + ".mp3' controls='controls' autoplay='autoplay' ></audio>";}
 
 
         function ajaxRequest (url) {

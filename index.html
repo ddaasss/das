@@ -3,20 +3,23 @@
 	<!-- <base target="_blank"/> -->
 <style>
 	*{margin:0;padding: 0;}
-	body{width:100%;}
+	body{width:100%;font-size:14px;}
 	img{max-width: 100%;}
 #input{text-align:center;}
 
 #line{width:70%;height:20px;margin:0 auto;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAArSURBVBhXY1hx/Ol/JiYWVgYmIGBgYmRgZGBi+M8AJIAAQgB5yFyEBJEsAN+OBYtx8INFAAAAAElFTkSuQmCC) repeat-x;opacity: .3;}
 #box{width:70%;margin:0 auto;background: black;display: flex;flex-wrap: wrap;justify-content: center;margin-bottom: 20px;}
 #box a{display:block;width:20%;color:white;line-height:2rem;text-align: center;}
-#box a:hover{color:#red;text-decoration: underline;}
+#box a:hover{color:#red;text-decoration: underline;cursor:pointer;}
 
-#bu{width:70%;margin-bottom: 3px;padding:3px;font-size: 1.5rem;}
+#bu{width:70%;margin:0 auto;margin-bottom: 3px;padding:3px;font-size: 1.5rem;}
+#bu button{font-size: 1.1rem;padding: 2px;}
+#bu button:hover{background: #39f;}
 
 #wrap{width: 70%;position: absolute;bottom:0;left: 15%;margin-bottom: 20px;z-index: -1}
 #code{width:100%;margin:0 auto;background:#dff;display:flex;flex-wrap:wrap;justify-content: flex-end;align-content: center;}
 #code>p{width:7.69%;line-height: 2rem;text-align: center;border:1px #accced solid;box-sizing: border-box;}
+#code>p:hover{background: #159cff}
 
 #code>p:nth-last-child(-n+6){width:11%;}
 #code>p:nth-last-child(5){flex:1;}

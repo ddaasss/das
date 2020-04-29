@@ -77,7 +77,7 @@
 	<a url="http://so.ifeng.com/?q=">凤凰</a>
 	<a url="https://search.zol.com.cn/s/all.php?kword=">ZOL</a>
 	<a url="https://segmentfault.com/search?q=">segmen</a>
-
+	<a url="">DIY</a>
 	<a url="">seq</a>
 	<a url="">ASCII</a>
 	<a url="">reverse</a>
@@ -200,7 +200,9 @@ btns[len-2].addEventListener("click",function(){
 });
 
 btns[len-1].addEventListener("click",function(){
-	document.cookie="bg="+idkw.value+";expires=Thu, 01 Jan 2022 00:00:00 UTC"
+
+	document.cookie=(/^http/.test(idkw.value))?"ss="+idkw.value+";expires=Thu, 01 Jan 2022 00:00:00 UTC":
+	"bg="+idkw.value+";expires=Thu, 01 Jan 2022 00:00:00 UTC"
 	 cook()	
 	});
 
@@ -216,7 +218,7 @@ function calc(){
 <script>
 var codes=document.querySelectorAll("#code p");
 var codeslen=codes.length;
-for(var i=0;i<72;i++){
+for(var i=0;i<73;i++){
 	if(i!==12&&i!==65){
 		codes[i].addEventListener("click",function(e){
 			idkw.value=
@@ -257,8 +259,10 @@ codes[75].addEventListener("click",function(e){
 var bj=document.cookie.match(/bg=[^;]+/)?
 document.cookie.match(/bg=[^;]+/)[0].slice(3):"#102456"
 document.body.style.background=bj;
+document.cookie.match(/ss=[^;]+/)&&btns[len-7].setAttribute("url",document.cookie.match(/ss=[^;]+/)[0].slice(3))
 }
 cook();
+
 
 </script>
 

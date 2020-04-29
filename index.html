@@ -8,18 +8,20 @@
 #input{text-align:center;}
 
 #line{width:70%;height:20px;margin:0 auto;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAArSURBVBhXY1hx/Ol/JiYWVgYmIGBgYmRgZGBi+M8AJIAAQgB5yFyEBJEsAN+OBYtx8INFAAAAAElFTkSuQmCC) repeat-x;opacity: .3;}
-#box{width:70%;margin:0 auto;background: black;display: flex;flex-wrap: wrap;justify-content: center;margin-bottom: 15px;}
-#box a{display:block;width:20%;color:white;line-height:1.9rem;text-align: center;font-size: 1.1rem;}
+
+#box{width:70%;margin:0 auto;margin-bottom: 15px;overflow：hidden;background:#000}
+
+#box a{float:left;width:20%;color:white;line-height:1.9rem;text-align: center;font-size: 1.1rem;}
 #box a:hover{color:#red;text-decoration: underline;cursor:pointer;}
 
-#bu{width:70%;margin:0 auto;margin-bottom: 3px;padding:3px;}
+#bu{width:70%;margin:0 auto;margin-bottom: 3px;padding:3px;display: flex;flex-wrap: wrap;justify-content: center;}
 #bu button{font-size: 1.1rem;padding: 2px;}
 #bu button:hover{background: #39f;}
 #view ol{list-style-position: inside;}
 
 #wrap{width: 70%;position: absolute;bottom:0;left: 15%;margin-bottom: 20px;z-index: -1}
 #code{width:100%;margin:0 auto;background:#dff;display:flex;flex-wrap:wrap;justify-content: flex-end;align-content: center;}
-#code>p{width:7.69%;line-height: 2rem;text-align: center;border:1px #accced solid;box-sizing: border-box;user-select:none;}
+#code>p{width:7.69%;line-height: 2rem;text-align: center;border:1px #accced solid;box-sizing: border-box;user-select:none;-moz-user-select: none; -webkit-user-select: none;-ms-user-select: none;}
 #code>p:hover{background: #159cff}
 
 #code>p:nth-last-child(-n+6){width:10%;}
@@ -33,9 +35,9 @@
 		 <input type="text" id="keyword" value="">
 	</form>
 
-<div id="line"></div>
+<div id="line" class="vw"></div>
 
-<div id="box">
+<div id="box" class="vw" >
 	<a url=""># calc </a>
 	<a url="https://cn.bing.com/search?q=">bing </a>
 	<a url="https://www.baidu.com/s?word=">百度</a>
@@ -84,14 +86,15 @@
 	<a url="">repeat</a>
 	<a url="">color</a>
 	
+	<div style="clear:both"></div>
 	<!-- <a url=""></a> -->
 </div>
-<div id="wrap">
-	<div id="code">
+<div id="wrap" class="vw">
+	<div id="code" onselectstart ="return false">
 <p>`</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>0</p><p>-</p><p>=</p><p>~</p><p>!</p><p>@</p><p>#</p><p>$</p><p>%</p><p>^</p><p>&</p><p>*</p><p>(</p><p>)</p><p>_</p><p>+</p><p>q</p><p>w</p><p>e</p><p>r</p><p>t</p><p>y</p><p>u</p><p>i</p><p>o</p><p>p</p><p>[</p><p>]</p><p>=</p><p>'</p><p>"</p><p>a</p><p>s</p><p>d</p><p>f</p><p>g</p><p>h</p><p>j</p><p>k</p><p>l</p><p>;</p><p>:</p><p><</p><p>></p><p>?</p><p>z</p><p>x</p><p>c</p><p>v</p><p>b</p><p>n</p><p>m</p><p>,</p><p>.</p><p>/</p><p>⇑</p><p>{</p><p>}</p><p>|</p><p>\</p><p>https://</p><p>&nbsp;</p><p>.com</p><p>AC</p><p>Back</p><p>Enter</p>
 </div>
 </div>
-<div id="bu">
+<div id="bu" class="vw">
 <button>hide</button>
 
 <button id="btn">help</button>
@@ -101,18 +104,31 @@
 <button id="shift">nul</button>
 </div>
 
-<div id="view" style="width:70%;background: #000;color:#fff;margin:0 auto;">
- </div>
+<div id="view" class="vw" style="width:70%;background: #000;color:#fff;margin:0 auto;">
+</div>
     
 
 
 <script>
-	var idkw=document.getElementById('keyword');
+	var idkw=document.getElementById("keyword");
+	var vw=document.getElementsByClassName("vw");
 	var idview=document.getElementById("view");
 	var btns=document.getElementsByTagName("a");
-	var len=btns.length;
 
-	for(var i=1;i<len-6;i++){
+
+
+	if(/android|iphone/i.test(navigator.userAgent)){
+		 for(var i=0;i<5;i++){vw[i].style.width="100%";}
+		document.querySelector("#wrap").style.left="0";
+		}else{
+		idkw.focus();
+	}
+
+	
+
+
+	
+	for(var i=1,len=btns.length;i<len-6;i++){
 	
 		btns[i].addEventListener("click",function(e){
 			window.open(this.getAttribute('url') + encodeURIComponent(idkw.value));
@@ -130,8 +146,8 @@
 		var bing=(textv.match(/^http|^www|^m\./))?
 		"":"https://cn.bing.com/search?q="
 		window.open(bing + textv);
-	}
-};
+		}
+	};
 
 
 btns[0].addEventListener("click",calc);
@@ -237,17 +253,6 @@ codes[75].addEventListener("click",function(e){
 
 
 
-if(/android|iphone/i.test(navigator.userAgent)){
-	document.querySelector("#box").style.width="100%";
-	document.querySelector("#wrap").style.width="100%";
-	document.querySelector("#view").style.width="100%";
-	document.querySelector("#wrap").style.left="0";
-	document.querySelector("#line").style.width="100%";
-}else{
-	idkw.focus();
-}
-
-
 	function cook(){
 var bj=document.cookie.match(/bg=[^;]+/)?
 document.cookie.match(/bg=[^;]+/)[0].slice(3):"#102456"
@@ -271,12 +276,12 @@ cook();
         	"<audio src='' controls='controls' ></audio>";
         }
 
-
+ 
 
         bu[3].onclick = function(){
-        	var imgs=["https://cn.bing.com/th?id=OHR.SalisburyCathedral_ZH-CN6366350896_1920x1080.jpg","https://cn.bing.com/th?id=OHR.PalouseSpring_ZH-CN6803103328_1920x1080.jpg"]
+        var imgs=["/th?id=OHR.SalisburyCathedral_ZH-CN6366350896","/th?id=OHR.PalouseSpring_ZH-CN6803103328","/th?id=OHR.RubySunset_ZH-CN5544596519","/th?id=OHR.FalklandRockhoppers_ZH-CN5370686595","/th?id=OHR.MegellanicCloud_ZH-CN5132305226","/th?id=OHR.KauriTree_ZH-CN3695568740","/th?id=OHR.SouthAmericanTapir_ZH-CN6151058361"]
         	idview.innerHTML=
-        	"<img src='" + imgs[~~(Math.random()*2)] +"'>";}
+        	"<img src='https://cn.bing.com" + imgs[~~(Math.random()*7)] +"_1920x1080.jpg'>";}
         bu[4].onclick = function(){
         	var musics=[2116886,190495,298838,227012,29418971,298495,287039,276711,29491050];
         	idview.innerHTML=

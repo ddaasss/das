@@ -198,10 +198,9 @@ function calc(){
 
 
 <script>
-	
 var codes=document.querySelectorAll("#code p");
 var codeslen=codes.length;
-for(let i=0;i<72;i++){
+for(var i=0;i<72;i++){
 	if(i!==12&&i!==65){
 		codes[i].addEventListener("click",function(e){
 			idkw.value=
@@ -213,16 +212,11 @@ for(let i=0;i<72;i++){
 var flag=0;
 codes[65].addEventListener("click",function(e) {
 	flag=!flag
-Array.prototype.forEach.call(codes,function(ele,i){
-	if(i<63){
-	ele.innerHTML=(flag)?ele.innerHTML.toUpperCase():
-	ele.innerHTML.toLowerCase();
+for(var i=26;i<63;i++){
+	codes[i].innerHTML=(flag)?codes[i].innerHTML.toUpperCase():
+	codes[i].innerHTML.toLowerCase();
 	}
-})
 });
-
-
-
 
 codes[12].addEventListener("click",calc);
 codes[73].addEventListener("click",function(){
@@ -244,11 +238,11 @@ codes[75].addEventListener("click",function(e){
 
 
 if(/android|iphone/i.test(navigator.userAgent)){
-	document.querySelector("#box").style.width="100vw";
-	document.querySelector("#wrap").style.width="100vw";
-	document.querySelector("#view").style.width="100vw";
+	document.querySelector("#box").style.width="100%";
+	document.querySelector("#wrap").style.width="100%";
+	document.querySelector("#view").style.width="100%";
 	document.querySelector("#wrap").style.left="0";
-	document.querySelector("#line").style.width="100vw";
+	document.querySelector("#line").style.width="100%";
 }else{
 	idkw.focus();
 }

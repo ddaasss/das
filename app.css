@@ -193,15 +193,20 @@ button {
   list-style-position: inside;
 }
 
-.site-w>b,.prog-w b{
+.site-w>b,.prog-w>b,.dir-i>b {
   display: inline-block;
   margin:0 2px;
   
 }
 
-.site-w a,.prog-w a{
+.site-w a,.prog-w a, .dir-w a{
   color:#fff
 }
+.dir-h{
+  color:#102456;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
 
-.site-w a:hover,.prog-w a:hover{ color:blue}
+.site-w a:hover,.prog-w a:hover,.dir-i a:hover{ color:blue}
 

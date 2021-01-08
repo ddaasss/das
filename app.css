@@ -21,11 +21,13 @@
 
 body {
   width: 100%;
+  height:100%;
   font-size: 14px;
 }
 /* .home{
   min-height:calc(100vh - 3317px); 
 } */
+
 
 .w70{
   width:70%
@@ -35,7 +37,7 @@ body {
 #input {
   width: 100%;
   text-align: center;
-  margin-top: 1px;
+  margin: .2rem 0;
  
 }
 
@@ -62,16 +64,22 @@ iframe{
   height: calc(100vh - 4.3rem);
 }
 #line {
-
+  display: flex;
   height: 20px;
   margin: 0 auto;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAYAAABMDlehAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAArSURBVBhXY1hx/Ol/JiYWVgYmIGBgYmRgZGBi+M8AJIAAQgB5yFyEBJEsAN+OBYtx8INFAAAAAElFTkSuQmCC)
     repeat-x;
   opacity: 0.3;
 }
+#line .closel{
+ 
+  color:#fff;
+  padding: 0 1rem;
+  cursor: pointer;
+}
 
 #box {
- 
+ padding-top: .5rem;
   margin: 0 auto;
   margin-bottom: 7px;
   overflow: hidden;
@@ -193,13 +201,13 @@ button {
   list-style-position: inside;
 }
 
-.site-w>b,.prog-w>b,.dir-i>b {
+.site-w>b,.video-w>b,.prog-w>b,.dir-i>b {
   display: inline-block;
   margin:0 2px;
   
 }
 
-.site-w a,.prog-w a, .dir-w a{
+.site-w a,.video-w a,.prog-w a, .dir-w a{
   color:#fff
 }
 .dir-h{

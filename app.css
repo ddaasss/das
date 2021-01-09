@@ -35,6 +35,8 @@ body {
 
 
 #input {
+  box-sizing: border-box;
+  height: 1.4rem;
   width: 100%;
   text-align: center;
   margin: .2rem 0;
@@ -42,7 +44,7 @@ body {
 }
 
 #keyword {
-  box-sizing: border-box;
+  
   width: 32%;
   border-radius:1em;
   border-width: 0;
@@ -112,17 +114,30 @@ iframe{
 }
 
 #bu button {
+  box-sizing: border-box;
+  height:1.7rem;
   font-size: 1.1rem;
-  padding: 2px;
+  border-width: 1px;
+  padding: 0 2px;
+  
 }
+/* #bu button:nth-of-type(1){
+  background:transparent !important;
+  color:#fff;
+} */
 
-#bu button:hover {
+#bu button:not(:first-of-type):hover {
   background: #39f;
+}
+#bu .tab-act{
+ background: transparent;
+ 
 }
 
 
 #wrap {
   width: 70%;
+
   position: absolute;
   bottom: 0;
   left: 15%;
